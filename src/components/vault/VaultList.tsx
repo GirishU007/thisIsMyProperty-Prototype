@@ -8,7 +8,8 @@ import { EmptyState } from '@/components/shared/EmptyState'
 import { Button } from '@/components/ui/button'
 import { DocumentCard } from './DocumentCard'
 import { UploadModal } from './UploadModal'
-import { uploadDocument, deleteDocument, getDocumentUrl } from '@/services/documents'
+import { uploadDocument, deleteDocument, getDocumentSignedUrl } from '@/services/documents'
+import { DocumentViewer } from './DocumentViewer'
 import type { Document, Property } from '@/types'
 
 const CATEGORIES = ['deed', 'warranty', 'insurance', 'permit', 'receipt', 'invoice', 'other']
@@ -21,6 +22,7 @@ interface VaultListProps {
 export function VaultList({ initialDocuments, properties }: VaultListProps) {
   const [documents, setDocuments] = useState<Document[]>(initialDocuments)
   const [uploadOpen, setUploadOpen] = useState(false)
+  const [viewingDoc, setViewingDoc] = useState<Document | null>(null)
   const [activeCategory, setActiveCategory] = useState<string | null>(null)
   const [uploading, setUploading] = useState(false)
 
@@ -51,6 +53,7 @@ export function VaultList({ initialDocuments, properties }: VaultListProps) {
     try {
       await deleteDocument(doc.id, doc.file_path)
       setDocuments(prev => prev.filter(d => d.id !== doc.id))
+      if (viewingDoc?.id === doc.id) setViewingDoc(null)
       toast.success('Document deleted')
     } catch {
       toast.error('Failed to delete document')
@@ -59,7 +62,7 @@ export function VaultList({ initialDocuments, properties }: VaultListProps) {
 
   const handleDownload = async (doc: Document) => {
     try {
-      const url = await getDocumentUrl(doc.file_path)
+      const url = await getDocumentSignedUrl(doc.file_path)
       window.open(url, '_blank')
     } catch {
       toast.error('Failed to generate download link')
@@ -134,6 +137,7 @@ export function VaultList({ initialDocuments, properties }: VaultListProps) {
               key={doc.id}
               document={doc}
               propertyAddress={propertyMap[doc.property_id] ?? 'Unknown property'}
+              onView={setViewingDoc}
               onDownload={handleDownload}
               onDelete={handleDelete}
             />
@@ -147,6 +151,15 @@ export function VaultList({ initialDocuments, properties }: VaultListProps) {
           onUpload={handleUpload}
           onClose={() => setUploadOpen(false)}
           isLoading={uploading}
+        />
+      )}
+
+      {viewingDoc && (
+        <DocumentViewer
+          document={viewingDoc}
+          propertyAddress={propertyMap[viewingDoc.property_id] ?? 'Unknown property'}
+          onClose={() => setViewingDoc(null)}
+          onDelete={handleDelete}
         />
       )}
     </div>

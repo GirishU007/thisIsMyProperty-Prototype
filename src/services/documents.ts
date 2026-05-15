@@ -60,7 +60,7 @@ export async function uploadDocument(
   return data as Document
 }
 
-export async function getDocumentUrl(filePath: string): Promise<string> {
+export async function getDocumentSignedUrl(filePath: string): Promise<string> {
   const supabase = createClient()
   const { data, error } = await supabase.storage
     .from(BUCKET)

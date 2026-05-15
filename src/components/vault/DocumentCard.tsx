@@ -9,6 +9,7 @@ import type { Document } from '@/types'
 interface DocumentCardProps {
   document: Document
   propertyAddress: string
+  onView: (doc: Document) => void
   onDownload: (doc: Document) => void
   onDelete: (doc: Document) => void
 }
@@ -50,11 +51,14 @@ const CATEGORY_ICON_STYLE: Record<string, string> = {
   other: 'bg-muted text-muted-foreground',
 }
 
-export function DocumentCard({ document, propertyAddress, onDownload, onDelete }: DocumentCardProps) {
+export function DocumentCard({ document, propertyAddress, onView, onDownload, onDelete }: DocumentCardProps) {
   const iconStyle = CATEGORY_ICON_STYLE[document.category] ?? CATEGORY_ICON_STYLE.other
 
   return (
-    <Card className="group transition-colors hover:border-primary/30">
+    <Card
+      className="group transition-colors hover:border-primary/30 cursor-pointer"
+      onClick={() => onView(document)}
+    >
       <CardContent className="p-4 flex items-start gap-3">
         <div
           className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg ${iconStyle}`}
@@ -82,7 +86,7 @@ export function DocumentCard({ document, propertyAddress, onDownload, onDelete }
             variant="ghost"
             size="icon"
             className="h-7 w-7"
-            onClick={() => onDownload(document)}
+            onClick={e => { e.stopPropagation(); onDownload(document) }}
             title="Download"
           >
             <Download className="h-3.5 w-3.5" />
@@ -91,7 +95,7 @@ export function DocumentCard({ document, propertyAddress, onDownload, onDelete }
             variant="ghost"
             size="icon"
             className="h-7 w-7 hover:text-destructive"
-            onClick={() => onDelete(document)}
+            onClick={e => { e.stopPropagation(); onDelete(document) }}
             title="Delete"
           >
             <Trash2 className="h-3.5 w-3.5" />

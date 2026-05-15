@@ -38,6 +38,45 @@ export interface Document {
   created_at: string
 }
 
+export type ForecastRiskLevel = 'low' | 'medium' | 'high' | 'critical'
+
+export type ForecastCategory =
+  | 'maintenance'
+  | 'structural'
+  | 'compliance'
+  | 'documentation'
+  | 'financial'
+
+export interface ForecastItem {
+  category: ForecastCategory
+  label: string
+  riskLevel: ForecastRiskLevel
+  estimatedCost: number
+  description: string
+}
+
+export interface PropertyForecast {
+  property: Property
+  riskLevel: ForecastRiskLevel
+  riskScore: number
+  confidenceScore: number
+  documentCount: number
+  estimatedExposure: number
+  items: ForecastItem[]
+  actions: string[]
+}
+
+export interface ForecastSummary {
+  totalProperties: number
+  totalEstimatedExposure: number
+  averageRiskScore: number
+  averageConfidenceScore: number
+  overallRiskLevel: ForecastRiskLevel
+  propertyForecasts: PropertyForecast[]
+  portfolioActions: string[]
+  generatedAt: string
+}
+
 export interface NavItem {
   href: string
   label: string
