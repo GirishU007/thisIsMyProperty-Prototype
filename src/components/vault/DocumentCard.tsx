@@ -42,12 +42,12 @@ function formatDate(dateStr: string): string {
 }
 
 const CATEGORY_ICON_STYLE: Record<string, string> = {
-  deed: 'bg-blue-500/10 text-blue-400',
-  warranty: 'bg-purple-500/10 text-purple-400',
-  insurance: 'bg-amber-500/10 text-amber-400',
-  permit: 'bg-orange-500/10 text-orange-400',
-  receipt: 'bg-green-500/10 text-green-400',
-  invoice: 'bg-cyan-500/10 text-cyan-400',
+  deed: 'bg-blue-500/10 text-blue-600',
+  warranty: 'bg-purple-500/10 text-purple-600',
+  insurance: 'bg-amber-500/10 text-amber-600',
+  permit: 'bg-orange-500/10 text-orange-600',
+  receipt: 'bg-green-500/10 text-green-600',
+  invoice: 'bg-cyan-500/10 text-cyan-600',
   other: 'bg-muted text-muted-foreground',
 }
 

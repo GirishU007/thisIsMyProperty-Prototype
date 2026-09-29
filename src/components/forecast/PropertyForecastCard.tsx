@@ -22,16 +22,16 @@ const RISK_STYLES: Record<ForecastRiskLevel, {
     iconBg: 'bg-primary/10 text-primary',
   },
   medium: {
-    badge: 'bg-amber-500/10 text-amber-400 border-amber-500/20',
+    badge: 'bg-amber-500/10 text-amber-600 border-amber-500/20',
     bar: 'bg-amber-500',
-    text: 'text-amber-400',
-    iconBg: 'bg-amber-500/10 text-amber-400',
+    text: 'text-amber-600',
+    iconBg: 'bg-amber-500/10 text-amber-600',
   },
   high: {
-    badge: 'bg-orange-500/10 text-orange-400 border-orange-500/20',
+    badge: 'bg-orange-500/10 text-orange-600 border-orange-500/20',
     bar: 'bg-orange-500',
-    text: 'text-orange-400',
-    iconBg: 'bg-orange-500/10 text-orange-400',
+    text: 'text-orange-600',
+    iconBg: 'bg-orange-500/10 text-orange-600',
   },
   critical: {
     badge: 'bg-destructive/10 text-destructive border-destructive/20',

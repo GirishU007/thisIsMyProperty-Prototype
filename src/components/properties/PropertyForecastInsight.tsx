@@ -17,14 +17,14 @@ const RISK_STYLES: Record<ForecastRiskLevel, { badge: string; bar: string; text:
     text:  'text-primary',
   },
   medium: {
-    badge: 'bg-amber-500/10 text-amber-400 border-amber-500/20',
+    badge: 'bg-amber-500/10 text-amber-600 border-amber-500/20',
     bar:   'bg-amber-500',
-    text:  'text-amber-400',
+    text:  'text-amber-600',
   },
   high: {
-    badge: 'bg-orange-500/10 text-orange-400 border-orange-500/20',
+    badge: 'bg-orange-500/10 text-orange-600 border-orange-500/20',
     bar:   'bg-orange-500',
-    text:  'text-orange-400',
+    text:  'text-orange-600',
   },
   critical: {
     badge: 'bg-destructive/10 text-destructive border-destructive/20',
@@ -95,9 +95,9 @@ export function PropertyForecastInsight({ forecast }: PropertyForecastInsightPro
         {/* Missing document warning */}
         {docWarning && (
           <div className="flex items-start gap-2.5 rounded-lg border border-amber-500/20 bg-amber-500/5 px-3 py-2.5">
-            <FileWarning className="h-4 w-4 text-amber-400 shrink-0 mt-0.5" />
+            <FileWarning className="h-4 w-4 text-amber-600 shrink-0 mt-0.5" />
             <div>
-              <p className="text-xs font-medium text-amber-400">Missing Documents</p>
+              <p className="text-xs font-medium text-amber-600">Missing Documents</p>
               <p className="text-xs text-muted-foreground mt-0.5">{docWarning.description}</p>
             </div>
           </div>
