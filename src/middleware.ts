@@ -1,5 +1,29 @@
 import { createServerClient, type CookieOptions } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
+import {
+  TIMP_SESSION_COOKIE,
+  TIMP_SESSION_COOKIE_OPTIONS,
+  parseTimpRole,
+  timpRoleForPath,
+  type TimpRole,
+} from '@/lib/timpSession'
+
+/* Implied prototype session: remember that the visitor is "signed in" once they enter
+   the TIMP homeowner/agent app (or are signed in with Supabase). */
+function withTimpSession(
+  request: NextRequest,
+  response: NextResponse,
+  hasSupabaseUser: boolean
+): NextResponse {
+  if (request.nextUrl.pathname.startsWith('/signout')) return response
+  const current = parseTimpRole(request.cookies.get(TIMP_SESSION_COOKIE)?.value)
+  let next: TimpRole | null = timpRoleForPath(request.nextUrl.pathname) ?? current
+  if (!next && hasSupabaseUser) next = 'ho'
+  if (next && next !== current) {
+    response.cookies.set(TIMP_SESSION_COOKIE, next, TIMP_SESSION_COOKIE_OPTIONS)
+  }
+  return response
+}
 
 export async function middleware(request: NextRequest) {
   let supabaseResponse = NextResponse.next({ request })
@@ -8,7 +32,7 @@ export async function middleware(request: NextRequest) {
   const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 
   if (!supabaseUrl || !supabaseAnonKey) {
-    return supabaseResponse
+    return withTimpSession(request, supabaseResponse, false)
   }
 
   const supabase = createServerClient(supabaseUrl, supabaseAnonKey, {
@@ -53,7 +77,7 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(redirectUrl)
   }
 
-  return supabaseResponse
+  return withTimpSession(request, supabaseResponse, !!user)
 }
 
 export const config = {

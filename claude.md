@@ -444,3 +444,4 @@ prototype "TIMP Prototype — CURRENT" (ThisIsMyProperty.com). The source of tru
   that handles the dropdowns, sidebar collapse, mobile drawer, screen index, `data-stub` (intentionally inert
   controls), `data-print` and `data-plan`.
 - Images: `public/images/timp/`.
+- Implied session: entering `/ho…` or `/agent…` (or a real Supabase login) sets the `timp_session` cookie (`src/lib/timpSession.ts`, set in `src/middleware.ts`). While it is set, the public top nav (`PublicNav`) shows **My Dashboard** and an avatar menu (My Dashboard / Sign out) instead of Try it free / Sign In. `/signout` clears it (and signs out of Supabase).

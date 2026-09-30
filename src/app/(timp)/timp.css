@@ -2665,3 +2665,22 @@
 }
 
 .timp{min-height:100vh}
+
+/* ---- signed-in account menu in the public top nav (not in the prototype: shown when the
+   visitor has entered the app, see src/lib/timpSession.ts). Reuses the app-bar avatar and
+   the top-nav dropdown styles; always a right-aligned dropdown, also on small screens. ---- */
+.timp .nav-cta .usermenu.navitem > .navlink{gap:7px;padding:0;border-bottom:0;font-size:12.5px;font-weight:600;
+  letter-spacing:0;text-transform:none;color:var(--navy);white-space:nowrap}
+.timp .nav-cta .usermenu.navitem > .navlink:hover{color:var(--teal-deep)}
+.timp .usermenu .usermenu-photo{background:#DCE9EF center/cover no-repeat;background-image:url("/images/timp/whoblock-ph.jpg")}
+.timp .nav-cta .usermenu.navitem .navmenu{position:absolute;left:auto;right:0;top:calc(100% + 12px);display:none;
+  background:#fff;border:1px solid var(--line);border-radius:var(--r-sm);box-shadow:var(--shadow-md);
+  min-width:170px;padding:5px;z-index:60}
+.timp .nav-cta .usermenu.navitem:hover .navmenu,.timp .nav-cta .usermenu.navitem.is-open .navmenu,
+.timp .nav-cta .usermenu.navitem:focus-within .navmenu{display:block}
+.timp .nav-cta .usermenu.navitem .navmenu a{display:block;padding:9px 12px;font-size:12px;font-weight:600;
+  text-transform:none;letter-spacing:0;color:var(--navy);border-radius:4px;white-space:nowrap;background:none}
+.timp .nav-cta .usermenu.navitem .navmenu a:hover{background:var(--tint);color:var(--teal-deep)}
+.timp .nav-cta .usermenu .usermenu-who{display:block;padding:8px 12px 9px;margin-bottom:4px;font-size:11.5px;
+  color:var(--slate);border-bottom:1px solid var(--line-soft);white-space:nowrap}
+.timp .nav-cta .usermenu .usermenu-who b{color:var(--navy);font-weight:700}
