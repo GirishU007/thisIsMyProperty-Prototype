@@ -86,7 +86,7 @@ export function VaultList({ initialDocuments, properties }: VaultListProps) {
         <div className="flex gap-2 flex-wrap mb-6">
           <button
             onClick={() => setActiveCategory(null)}
-            className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
+            className={`rounded-full px-3 py-1.5 text-xs font-medium transition-colors ${
               activeCategory === null
                 ? 'bg-primary text-primary-foreground'
                 : 'bg-muted text-muted-foreground hover:text-foreground'
@@ -98,7 +98,7 @@ export function VaultList({ initialDocuments, properties }: VaultListProps) {
             <button
               key={c}
               onClick={() => setActiveCategory(prev => (prev === c ? null : c))}
-              className={`rounded-full px-3 py-1 text-xs font-medium capitalize transition-colors ${
+              className={`rounded-full px-3 py-1.5 text-xs font-medium capitalize transition-colors ${
                 activeCategory === c
                   ? 'bg-primary text-primary-foreground'
                   : 'bg-muted text-muted-foreground hover:text-foreground'
@@ -113,6 +113,7 @@ export function VaultList({ initialDocuments, properties }: VaultListProps) {
       {documents.length === 0 ? (
         <EmptyState
           icon={Archive}
+          image="/images/feature-vault.jpg"
           title="Your vault is empty"
           description="Upload deeds, warranties, insurance policies, permits, and receipts. All documents are securely stored."
           action={

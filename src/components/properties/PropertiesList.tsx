@@ -78,6 +78,7 @@ export function PropertiesList({ initialProperties }: PropertiesListProps) {
       {properties.length === 0 ? (
         <EmptyState
           icon={Building2}
+          image="/images/houses/house-5.jpg"
           title="No properties yet"
           description="Add your first property to start tracking your portfolio. You can add residential, commercial, or land properties."
           action={

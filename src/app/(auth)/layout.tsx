@@ -1,5 +1,6 @@
+import Image from 'next/image'
 import Link from 'next/link'
-import { Building2 } from 'lucide-react'
+import { Logo } from '@/components/shared/Logo'
 
 export default function AuthLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -11,19 +12,26 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
 
       {/* Header */}
       <header className="relative z-10 border-b border-border">
-        <div className="mx-auto flex h-14 max-w-7xl items-center px-6">
-          <Link href="/" className="flex items-center gap-2.5">
-            <div className="flex h-7 w-7 items-center justify-center rounded-md bg-primary">
-              <Building2 className="h-4 w-4 text-primary-foreground" />
-            </div>
-            <span className="font-semibold text-sm tracking-tight">ThisIsOurMoney</span>
+        <div className="mx-auto flex h-14 max-w-7xl items-center px-4 sm:px-6">
+          <Link href="/" aria-label="ThisIsMyProperty.com home">
+            <Logo />
           </Link>
         </div>
       </header>
 
       {/* Content */}
-      <main className="relative z-10 flex min-h-[calc(100vh-3.5rem)] items-center justify-center px-6 py-12">
-        {children}
+      <main className="relative z-10 grid min-h-[calc(100dvh-3.5rem)] lg:grid-cols-[1fr_1.2fr]">
+        <div className="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-12">{children}</div>
+        <div className="relative hidden lg:block">
+          <Image
+            src="/images/auth-couple.jpg"
+            alt="Homeowners reviewing their home's health on a laptop"
+            fill
+            priority
+            sizes="55vw"
+            className="object-cover object-right"
+          />
+        </div>
       </main>
     </div>
   )

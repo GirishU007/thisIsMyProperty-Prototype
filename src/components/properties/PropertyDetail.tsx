@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { ArrowLeft, Pencil, Trash2 } from 'lucide-react'
 import { toast } from 'sonner'
+import Image from 'next/image'
 import Link from 'next/link'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -12,6 +13,7 @@ import { Separator } from '@/components/ui/separator'
 import { PropertyModal } from './PropertyModal'
 import { updateProperty, deleteProperty } from '@/services/properties'
 import { formatCurrency, formatDate } from '@/lib/utils'
+import { getPropertyImage } from '@/lib/propertyImages'
 import type { Property } from '@/types'
 import type { PropertyFormData } from '@/lib/validations/property'
 
@@ -58,7 +60,17 @@ export function PropertyDetail({ property: initial }: PropertyDetailProps) {
 
   return (
     <div>
-      <div className="flex items-start justify-between gap-4 mb-6">
+      <div className="relative mb-6 aspect-[2/1] max-h-64 sm:aspect-[3/1] w-full overflow-hidden rounded-xl border border-border bg-muted">
+        <Image
+          src={getPropertyImage(property.id)}
+          alt=""
+          fill
+          priority
+          sizes="(min-width: 1024px) 75vw, 100vw"
+          className="object-cover"
+        />
+      </div>
+      <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div className="flex items-start gap-3 min-w-0">
           <Button variant="ghost" size="icon" className="h-8 w-8 mt-0.5 shrink-0" asChild>
             <Link href="/properties">
@@ -66,13 +78,13 @@ export function PropertyDetail({ property: initial }: PropertyDetailProps) {
             </Link>
           </Button>
           <div className="min-w-0">
-            <h1 className="text-2xl font-bold tracking-tight break-words">{property.address}</h1>
+            <h1 className="text-xl font-bold tracking-tight break-words sm:text-2xl">{property.address}</h1>
             <Badge variant="secondary" className="mt-1.5 text-xs">
               {TYPE_LABELS[property.property_type] ?? property.property_type}
             </Badge>
           </div>
         </div>
-        <div className="flex shrink-0 gap-2">
+        <div className="flex shrink-0 gap-2 pl-11 sm:pl-0">
           <Button variant="outline" size="sm" className="gap-2" onClick={() => setEditOpen(true)}>
             <Pencil className="h-4 w-4" />
             Edit

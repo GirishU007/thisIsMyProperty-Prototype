@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { Menu, LogOut, User, Settings } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { toast } from 'sonner'
@@ -14,6 +15,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { useAuth } from '@/hooks/useAuth'
+import { Logo } from '@/components/shared/Logo'
 
 interface NavbarProps {
   onMenuClick: () => void
@@ -39,16 +41,20 @@ export function Navbar({ onMenuClick }: NavbarProps) {
     : user?.email?.slice(0, 2).toUpperCase() ?? 'U'
 
   return (
-    <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b border-border bg-background/80 px-4 backdrop-blur-sm">
+    <header className="sticky top-0 z-30 flex h-14 items-center gap-2 border-b border-border bg-background/80 px-4 backdrop-blur-sm">
       <Button
         variant="ghost"
         size="icon"
-        className="h-8 w-8 lg:hidden"
+        className="h-10 w-10 lg:hidden"
         onClick={onMenuClick}
         aria-label="Open menu"
       >
-        <Menu className="h-4 w-4" />
+        <Menu className="h-5 w-5" />
       </Button>
+
+      <Link href="/dashboard" className="lg:hidden" aria-label="ThisIsMyProperty.com dashboard">
+        <Logo />
+      </Link>
 
       <div className="flex-1" />
 

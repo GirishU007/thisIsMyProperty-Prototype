@@ -81,7 +81,7 @@ export function DocumentCard({ document, propertyAddress, onView, onDownload, on
           </div>
         </div>
 
-        <div className="flex gap-1 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity">
+        <div className="flex gap-1 shrink-0 transition-opacity lg:opacity-0 lg:focus-within:opacity-100 lg:group-hover:opacity-100">
           <Button
             variant="ghost"
             size="icon"

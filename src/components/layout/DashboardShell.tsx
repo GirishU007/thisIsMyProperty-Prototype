@@ -33,7 +33,7 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
       {/* Main */}
       <div className="lg:pl-60">
         <Navbar onMenuClick={() => setSidebarOpen(true)} />
-        <main className="p-6">{children}</main>
+        <main className="p-4 sm:p-6">{children}</main>
       </div>
     </div>
   )

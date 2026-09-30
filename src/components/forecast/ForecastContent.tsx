@@ -46,6 +46,7 @@ export async function ForecastContent() {
     return (
       <EmptyState
         icon={TrendingUp}
+        image="/images/house-cutaway.jpg"
         title="No properties to forecast"
         description="Add at least one property to generate your portfolio risk forecast and maintenance estimates."
         action={

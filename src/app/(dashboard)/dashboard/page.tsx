@@ -1,4 +1,5 @@
 import { Suspense } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { PageHeader } from '@/components/shared/PageHeader'
 import { StatCardSkeleton, LoadingState } from '@/components/shared/LoadingState'
@@ -22,6 +23,17 @@ export default function DashboardPage() {
         title="Dashboard"
         description="Your property portfolio at a glance"
       />
+
+      <div className="relative mb-8 aspect-[760/135] w-full overflow-hidden rounded-xl border border-border bg-muted">
+        <Image
+          src="/images/dashboard-banner.jpg"
+          alt="Knowledge today. A healthier home tomorrow."
+          fill
+          priority
+          sizes="(min-width: 1024px) 75vw, 100vw"
+          className="object-cover"
+        />
+      </div>
 
       <Suspense fallback={<StatCardSkeleton />}>
         <DashboardStats />

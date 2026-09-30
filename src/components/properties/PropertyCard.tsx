@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { Building2, MoreVertical, Pencil, Trash2 } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
@@ -12,6 +13,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { formatCurrency } from '@/lib/utils'
+import { getPropertyImage } from '@/lib/propertyImages'
 import type { Property } from '@/types'
 
 const TYPE_LABELS: Record<string, string> = {
@@ -33,7 +35,16 @@ export function PropertyCard({ property, onEdit, onDelete }: PropertyCardProps) 
   const hasStats = hasBeds || hasBaths || hasSqft
 
   return (
-    <Card className="group transition-colors hover:border-primary/30">
+    <Card className="group overflow-hidden transition-colors hover:border-primary/30">
+      <Link href={`/properties/${property.id}`} className="relative block aspect-[2/1] bg-muted">
+        <Image
+          src={getPropertyImage(property.id)}
+          alt=""
+          fill
+          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+          className="object-cover"
+        />
+      </Link>
       <CardContent className="p-6">
         <div className="flex items-start justify-between gap-3">
           <Link href={`/properties/${property.id}`} className="flex items-start gap-3 flex-1 min-w-0">
@@ -52,7 +63,7 @@ export function PropertyCard({ property, onEdit, onDelete }: PropertyCardProps) 
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="icon" className="h-8 w-8 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity">
+              <Button variant="ghost" size="icon" className="h-9 w-9 shrink-0 transition-opacity lg:opacity-0 lg:focus-visible:opacity-100 lg:group-hover:opacity-100 data-[state=open]:opacity-100">
                 <MoreVertical className="h-4 w-4" />
               </Button>
             </DropdownMenuTrigger>

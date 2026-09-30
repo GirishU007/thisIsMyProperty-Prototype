@@ -1,17 +1,22 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Figtree, Source_Serif_4 } from 'next/font/google'
 import { Toaster } from '@/components/ui/toaster'
 import './globals.css'
 
-const inter = Inter({
+const figtree = Figtree({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-sans',
+})
+
+const sourceSerif = Source_Serif_4({
+  subsets: ['latin'],
+  variable: '--font-serif',
 })
 
 export const metadata: Metadata = {
   title: {
-    default: 'ThisIsOurMoney — Property Intelligence Platform',
-    template: '%s | ThisIsOurMoney',
+    default: 'ThisIsMyProperty.com — Your home’s health at your fingertips',
+    template: '%s | ThisIsMyProperty.com',
   },
   description:
     'Manage, monitor, and maximize your property portfolio with intelligent insights and secure document storage.',
@@ -24,7 +29,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} font-sans`}>
+      <body className={`${figtree.variable} ${sourceSerif.variable} font-sans`}>
         {children}
         <Toaster />
       </body>

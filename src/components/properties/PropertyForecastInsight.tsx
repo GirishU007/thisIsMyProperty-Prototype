@@ -69,7 +69,7 @@ export function PropertyForecastInsight({ forecast }: PropertyForecastInsightPro
 
       <CardContent className="space-y-4">
         {/* Stats row */}
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-3 gap-3 sm:gap-4">
           <div>
             <p className="text-xs text-muted-foreground">12-month est.</p>
             <p className="text-sm font-semibold mt-0.5">{fmtExposure(estimatedExposure)}</p>

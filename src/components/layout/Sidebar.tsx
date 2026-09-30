@@ -13,6 +13,7 @@ import {
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
+import { Logo } from '@/components/shared/Logo'
 
 const mainNav = [
   { href: '/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
@@ -29,17 +30,14 @@ export function Sidebar({ onClose }: SidebarProps) {
   const pathname = usePathname()
 
   return (
-    <div className="flex h-full flex-col bg-card border-r border-border">
+    <div className="flex h-full flex-col bg-sidebar text-sidebar-foreground">
       {/* Logo */}
-      <div className="flex h-14 items-center justify-between px-4 border-b border-border">
-        <Link href="/dashboard" className="flex items-center gap-2.5">
-          <div className="flex h-7 w-7 items-center justify-center rounded-md bg-primary">
-            <Building2 className="h-4 w-4 text-primary-foreground" />
-          </div>
-          <span className="font-semibold text-sm tracking-tight">ThisIsOurMoney</span>
+      <div className="flex h-14 items-center justify-between px-4 border-b border-white/10">
+        <Link href="/dashboard" aria-label="ThisIsMyProperty.com dashboard">
+          <Logo variant="inverse" />
         </Link>
         {onClose && (
-          <Button variant="ghost" size="icon" className="h-7 w-7 lg:hidden" onClick={onClose}>
+          <Button variant="ghost" size="icon" className="h-7 w-7 text-white/70 hover:bg-white/10 hover:text-white lg:hidden" onClick={onClose}>
             <X className="h-4 w-4" />
           </Button>
         )}
@@ -57,8 +55,8 @@ export function Sidebar({ onClose }: SidebarProps) {
               className={cn(
                 'flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors',
                 isActive
-                  ? 'bg-primary/10 text-primary'
-                  : 'text-muted-foreground hover:bg-accent hover:text-foreground'
+                  ? 'bg-sidebar-active text-white shadow-[inset_3px_0_0_hsl(var(--sidebar-accent))]'
+                  : 'text-white/70 hover:bg-white/5 hover:text-white'
               )}
             >
               <Icon className="h-4 w-4 shrink-0" />
@@ -70,15 +68,15 @@ export function Sidebar({ onClose }: SidebarProps) {
 
       {/* Settings */}
       <div className="px-3 pb-4">
-        <Separator className="mb-4" />
+        <Separator className="mb-4 bg-white/10" />
         <Link
           href="/settings"
           onClick={onClose}
           className={cn(
             'flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors',
             pathname === '/settings'
-              ? 'bg-primary/10 text-primary'
-              : 'text-muted-foreground hover:bg-accent hover:text-foreground'
+              ? 'bg-sidebar-active text-white shadow-[inset_3px_0_0_hsl(var(--sidebar-accent))]'
+              : 'text-white/70 hover:bg-white/5 hover:text-white'
           )}
         >
           <Settings className="h-4 w-4 shrink-0" />
