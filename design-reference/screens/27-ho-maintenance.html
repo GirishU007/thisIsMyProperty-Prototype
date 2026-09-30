@@ -1,0 +1,106 @@
+<!-- SCREEN 8b — UPCOMING MAINTENANCE (#/ho/maintenance) | route /ho/maintenance -->
+<section class="screen" id="s-maint" data-route="/ho/maintenance">
+<div class="app">
+  <div data-side="ho" data-active="alerts"></div>
+  <div class="main">
+    <div class="appbar">
+      <div><a class="crumb" href="#/ho/alerts"><svg width="12" height="12" style="transform:rotate(180deg)"><use href="#i-chev"/></svg> Back to My Alerts</a>
+        <div class="printonly">ThisIsMyProperty.com &nbsp;&middot;&nbsp; All Properties</div>
+        <h1>Upcoming Maintenance</h1><div class="sub">Stay ahead of repairs, replacements and routine care. A well-maintained home protects your investment.</div></div>
+      <div class="appbar-right">
+        <button class="btn btn-ghost" style="padding:7px 13px" data-print><svg width="14" height="14"><use href="#i-doc"/></svg> Print</button>
+        <span class="searchbox"><svg width="14" height="14"><use href="#i-search"/></svg> Search&hellip;</span>
+        <a class="iconbtn" href="#/ho/alerts"><svg width="17" height="17"><use href="#i-bell"/></svg><span class="dot num">2</span></a>
+        <div class="avatar">JS</div>
+        <span class="who-mini">Hi, Jane <svg width="13" height="13" style="color:var(--slate)"><use href="#i-chevd"/></svg></span>
+      </div>
+    </div>
+    <div class="content">
+      <div class="umtop">
+        <span class="lb">Property</span>
+        <span class="umsel" data-stub="Filter by property">All Properties <svg width="12" height="12"><use href="#i-chevd"/></svg></span>
+      </div>
+
+      <div class="withrail">
+        <div>
+          <div class="umstats">
+            <div class="umstat"><span class="ic" style="background:#DFF2F2;color:var(--teal-deep)"><svg width="20" height="20"><use href="#i-wrench"/></svg></span>
+              <div><div class="n num">8</div><div class="k">Upcoming<br>Items</div><a class="link" href="#/ho/maintenance">View All &rarr;</a></div></div>
+            <div class="umstat"><span class="ic" style="background:#FBE0E2;color:var(--red)"><svg width="20" height="20"><use href="#i-calendar"/></svg></span>
+              <div><div class="n num red">1</div><div class="k">Overdue</div><a class="link" href="#/ho/maintenance">View Overdue &rarr;</a></div></div>
+            <div class="umstat"><span class="ic" style="background:#FCEBD5;color:var(--amber)"><svg width="20" height="20"><use href="#i-clock"/></svg></span>
+              <div><div class="n num amber">2</div><div class="k">Due in<br>Next 30 Days</div><a class="link" href="#/ho/maintenance">View Next 30 Days &rarr;</a></div></div>
+            <div class="umstat"><span class="ic" style="background:#E3EDF7;color:#2A5A85"><svg width="20" height="20"><use href="#i-home"/></svg></span>
+              <div><div class="n num">1</div><div class="k">Long-Term<br><span class="tiny muted">(&gt; 6 Months)</span></div><a class="link" href="#/ho/maintenance">View Long-Term &rarr;</a></div></div>
+          </div>
+
+          <div class="filters">
+            <button class="filt is-on">All Maintenance</button>
+            <button class="filt">By Property</button>
+            <button class="filt">By Category</button>
+            <span class="searchbox" style="margin-left:auto;padding:6px 10px;font-size:11.5px"><svg width="13" height="13"><use href="#i-search"/></svg> Search maintenance items&hellip;</span>
+            <button class="filt"><svg width="13" height="13" style="vertical-align:-2px"><use href="#i-funnel"/></svg> Filter</button>
+          </div>
+
+          <div class="tablewrap">
+            <table class="clients um">
+              <thead><tr>
+                <th>Item</th><th>Property</th><th>Category</th>
+                <th>Due Date <svg width="11" height="11"><use href="#i-chevd"/></svg></th>
+                <th>Status</th><th>Actions</th>
+              </tr></thead>
+              <tbody>
+            <tr><td><span class="umitem"><span class="umthumb u-hvac"></span><span><b>HVAC Service</b><span>Semi-annual service</span></span></span></td><td><span class="umprop">123 Happiness Street<br>Safety Harbor, FL 34695</span></td><td><span class="umcat"><svg width="16" height="16"><use href="#i-snow"/></svg> HVAC</span></td><td><span class="umdue"><b class="red">Aug 15, 2026</b><span>(28 days overdue)</span></span></td><td><span class="umst umst-over">Overdue</span></td><td><svg width="14" height="14" style="color:#B6C4CE"><use href="#i-vdots"/></svg></td></tr>
+            <tr><td><span class="umitem"><span class="umthumb u-roof"></span><span><b>Roof Inspection</b><span>Annual inspection</span></span></span></td><td><span class="umprop">123 Happiness Street<br>Safety Harbor, FL 34695</span></td><td><span class="umcat"><svg width="16" height="16"><use href="#i-roof"/></svg> Roofing</span></td><td><span class="umdue"><b class="">Oct 1, 2026</b><span>(19 days)</span></span></td><td><span class="umst umst-soon">Due Soon</span></td><td><svg width="14" height="14" style="color:#B6C4CE"><use href="#i-vdots"/></svg></td></tr>
+            <tr><td><span class="umitem"><span class="umthumb u-pool"></span><span><b>Pool Service</b><span>Monthly service</span></span></span></td><td><span class="umprop">1117 Humble Way<br>Dunedin, FL 34698</span></td><td><span class="umcat"><svg width="16" height="16"><use href="#i-pool"/></svg> Pool / Spa</span></td><td><span class="umdue"><b class="">Oct 10, 2026</b><span>(28 days)</span></span></td><td><span class="umst umst-soon">Due Soon</span></td><td><svg width="14" height="14" style="color:#B6C4CE"><use href="#i-vdots"/></svg></td></tr>
+            <tr><td><span class="umitem"><span class="umthumb u-wheat"></span><span><b>Water Heater</b><span>Check for leaks &amp; performance</span></span></span></td><td><span class="umprop">245 Peaceful Lane<br>Palm Harbor, FL 34683</span></td><td><span class="umcat"><svg width="16" height="16"><use href="#i-water"/></svg> Water Heater</span></td><td><span class="umdue"><b class="">Nov 28, 2026</b><span>(77 days)</span></span></td><td><span class="umst umst-sched">Scheduled</span></td><td><svg width="14" height="14" style="color:#B6C4CE"><use href="#i-vdots"/></svg></td></tr>
+            <tr><td><span class="umitem"><span class="umthumb u-pest"></span><span><b>Pest Control</b><span>Quarterly service</span></span></span></td><td><span class="umprop">1117 Humble Way<br>Dunedin, FL 34698</span></td><td><span class="umcat"><svg width="16" height="16"><use href="#i-shield"/></svg> Pest Control</span></td><td><span class="umdue"><b class="">Dec 15, 2026</b><span>(94 days)</span></span></td><td><span class="umst umst-up">Upcoming</span></td><td><svg width="14" height="14" style="color:#B6C4CE"><use href="#i-vdots"/></svg></td></tr>
+            <tr><td><span class="umitem"><span class="umthumb u-filter"></span><span><b>Air Filter Replacement</b><span>Replace filter (every 3 months)</span></span></span></td><td><span class="umprop">123 Happiness Street<br>Safety Harbor, FL 34695</span></td><td><span class="umcat"><svg width="16" height="16"><use href="#i-snow"/></svg> HVAC</span></td><td><span class="umdue"><b class="">Dec 20, 2026</b><span>(99 days)</span></span></td><td><span class="umst umst-up">Upcoming</span></td><td><svg width="14" height="14" style="color:#B6C4CE"><use href="#i-vdots"/></svg></td></tr>
+            <tr><td><span class="umitem"><span class="umthumb u-paint"></span><span><b>Exterior Paint Inspection</b><span>Check for wear, cracks or water damage</span></span></span></td><td><span class="umprop">245 Peaceful Lane<br>Palm Harbor, FL 34683</span></td><td><span class="umcat"><svg width="16" height="16"><use href="#i-paint"/></svg> Exterior</span></td><td><span class="umdue"><b class="">Mar 1, 2027</b><span>(170 days)</span></span></td><td><span class="umst umst-up">Upcoming</span></td><td><svg width="14" height="14" style="color:#B6C4CE"><use href="#i-vdots"/></svg></td></tr>
+            <tr><td><span class="umitem"><span class="umthumb u-land"></span><span><b>Landscaping Refresh</b><span>Trim, mulch and seasonal plants</span></span></span></td><td><span class="umprop">1117 Humble Way<br>Dunedin, FL 34698</span></td><td><span class="umcat"><svg width="16" height="16"><use href="#i-tree"/></svg> Landscaping</span></td><td><span class="umdue"><b class="">Apr 15, 2027</b><span>(215 days)</span></span></td><td><span class="umst umst-up">Upcoming</span></td><td><svg width="14" height="14" style="color:#B6C4CE"><use href="#i-vdots"/></svg></td></tr>
+              </tbody>
+            </table>
+            <div class="tfoot"><span class="n">Showing 1&ndash;8 of 8 items</span>
+              <span class="pager"><span class="n">Rows per page: 10</span><span class="pg">&lsaquo;</span><span class="pg is-on num">1</span><span class="pg">&rsaquo;</span></span>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:grid;gap:14px">
+          <div class="minisect" style="background:#F1FAFA;border-color:#CFE9E9">
+            <div class="minisect-h"><svg class="ic" width="16" height="16"><use href="#i-plus-circle"/></svg><b>Quick Add</b></div>
+            <p class="tiny" style="color:var(--navy);font-weight:700;margin-bottom:3px">Add a Maintenance Item</p>
+            <p class="tiny muted" style="margin-bottom:10px">Track upcoming maintenance, repairs or improvements.</p>
+            <a class="btn btn-primary" href="#/ho/add" style="width:100%;justify-content:center;padding:10px 12px"><svg width="13" height="13"><use href="#i-plus"/></svg> Add Maintenance Item</a>
+          </div>
+
+          <div class="minisect">
+            <div class="minisect-h"><svg class="ic" width="16" height="16" style="color:var(--amber)"><use href="#i-bulb"/></svg><b>Maintenance Tips</b><a class="link" href="#/ho/resources">View All</a></div>
+            <div class="umtip" role="img" aria-label="An outdoor air-conditioning condenser unit beside a home"></div>
+            <p style="font-size:13px;font-weight:700;color:var(--navy);line-height:1.3">Keep Your HVAC Running Efficiently</p>
+            <p class="tiny muted" style="margin-top:5px">Schedule regular maintenance twice a year to improve efficiency, lower energy bills and extend the life of your system.</p>
+            <a class="tiny" href="#/ho/resources" style="color:var(--teal-deep);font-weight:700;display:block;margin-top:8px">Read More &rarr;</a>
+            <div class="umdots"><i class="on"></i><i></i><i></i></div>
+          </div>
+
+          <div class="minisect">
+            <div class="minisect-h"><svg class="ic" width="16" height="16"><use href="#i-users"/></svg><b>Trusted Service Providers</b></div>
+            <p class="tiny muted" style="margin-bottom:10px">Need help with maintenance? Our vetted providers are here to help.</p>
+            <a class="btn btn-ghost" href="#/ho/providers" style="width:100%;justify-content:center;padding:10px 12px">Find a Service Provider <svg width="13" height="13"><use href="#i-arrow"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid4" style="margin-top:16px">
+        <div class="whyit" style="margin:0"><svg class="ic" width="17" height="17"><use href="#i-clock"/></svg><div><b>Never Miss a Service</b><br><span class="tiny">Routine care scheduled around your home&rsquo;s systems.</span></div></div>
+        <div class="whyit" style="margin:0"><svg class="ic" width="17" height="17"><use href="#i-dollar"/></svg><div><b>Avoid Costly Repairs</b><br><span class="tiny">Small fixes today prevent big bills tomorrow.</span></div></div>
+        <div class="whyit" style="margin:0"><svg class="ic" width="17" height="17"><use href="#i-shield-check"/></svg><div><b>Protect Warranties</b><br><span class="tiny">Documented service keeps coverage intact.</span></div></div>
+        <div class="whyit" style="margin:0"><svg class="ic" width="17" height="17"><use href="#i-trend"/></svg><div><b>Support Your Value</b><br><span class="tiny">A maintained home holds its worth at resale.</span></div></div>
+      </div>
+    </div>
+    <div data-appfoot></div>
+  </div>
+</div>
+</section>
+
+<!-- ============================ SCREEN — HOME IMPROVEMENTS SUMMARY (#/ho/improvements) ============================ -->
