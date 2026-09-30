@@ -10,6 +10,7 @@ const figtree = Figtree({
 
 const sourceSerif = Source_Serif_4({
   subsets: ['latin'],
+  axes: ['opsz'],
   variable: '--font-serif',
 })
 
