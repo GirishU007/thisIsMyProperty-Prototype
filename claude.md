@@ -420,3 +420,27 @@ Do not execute without approval:
 Always explain commands before execution.
 
 Never remove files without confirmation.
+
+# TIMP Prototype Screens (ported 1:1)
+
+The public site plus the homeowner and agent app screens are a **1:1 port** of the approved clickable
+prototype "TIMP Prototype — CURRENT" (ThisIsMyProperty.com). The source of truth is `design-reference/`:
+`prototype.html` (runnable in a browser), `styles.css`, `sprite.svg`, `shell.js`, `screens/NN-*.html`,
+`screenshots/`, and `SPEC.md` (route map, menus, click flows).
+
+- Routes live in the route group `src/app/(timp)/` (34 pages: `/`, `/agents`, `/mission`, `/pricing`,
+  `/pricing/agents`, `/how`, `/try`, `/brokers`, `/providers`, `/providers/homeowners`, `/register`,
+  `/register/agent`, `/ho/*`, `/agent/*`). The existing auth and data routes (`/login`, `/signup`,
+  `/dashboard`, `/properties`, `/vault`, `/forecast`, `/settings`) are unchanged.
+- Styling: `src/app/(timp)/timp.css` is the prototype CSS with every selector scoped under `.timp`
+  (the wrapper set by `(timp)/layout.tsx`). Inside `.timp`, Tailwind preflight and the app's base styles are
+  reverted, so the screens render exactly like the prototype. **Don't use Tailwind or shadcn inside TIMP screens,**
+  and don't restyle them. Change the markup or `timp.css` to match approved design changes.
+- Page markup was converted mechanically from `design-reference/screens/`: same elements, classes, copy
+  and mock numbers. Keep the `<section className="screen is-active">` wrapper.
+- Shared pieces are in `src/components/timp/`: `PublicNav`, `Sidebar` (ho/agent), `PublicFooter`/`AppFooter`,
+  `Brand`, `MenuButton`, `IconSprite` (icons: `<svg><use href="#i-NAME" /></svg>`), `ScreenIndex` (hide with
+  `NEXT_PUBLIC_SHOW_SCREEN_INDEX=false`), and `PrototypeBehaviors`. That last one is the single client component
+  that handles the dropdowns, sidebar collapse, mobile drawer, screen index, `data-stub` (intentionally inert
+  controls), `data-print` and `data-plan`.
+- Images: `public/images/timp/`.
