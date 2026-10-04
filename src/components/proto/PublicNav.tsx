@@ -9,9 +9,10 @@ const LINKS = [
   { k: "agents", t: "Agents", href: "/agents" },
   { k: "how", t: "How it works", href: "/how" },
   { k: "pricing", t: "Pricing", href: "/pricing" },
+  { k: "mission", t: "Our mission", href: "/mission" },
 ];
 
-// Public top navigation. Four links, one sign-in and one primary button.
+// Public top navigation. Five links, one sign-in and one primary button.
 // The buttons follow the audience of the page, and the signed-in state (see src/lib/session.ts).
 export async function PublicNav({ active }: { active: string }) {
   const role = parseRole((await cookies()).get(SESSION_COOKIE)?.value);

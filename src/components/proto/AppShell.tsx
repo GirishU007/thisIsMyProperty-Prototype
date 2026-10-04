@@ -29,7 +29,7 @@ export function AppShell({
   return (
     <div className="ux ux-app app">
       <aside className="side">
-        <Link className="side-brand" href="/app">
+        <Link className="side-brand" href="/" aria-label="ThisIsMyProperty.com home">
           <Brand />
         </Link>
         <button className="ux-propsw" data-act="propsw" aria-expanded="false">

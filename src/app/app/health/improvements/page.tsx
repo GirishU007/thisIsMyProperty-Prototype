@@ -10,7 +10,7 @@ export default function Page() {
   return (
     <AppShell active="health" title="Home improvements" sub="123 Happiness Street · everything you have improved, and what it cost.">
       <div className="ux-docbar">
-        <Link className="ux-link" href="/app/health">← Back to Home health</Link>
+        <Link className="ux-link" href="/app/health?tab=reports">← Back to reports</Link>
         <span className="r">
           <button className="ux-btn sec sm" data-act="print">
             <svg width="16" height="16">

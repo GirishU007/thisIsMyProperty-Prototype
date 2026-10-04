@@ -8,9 +8,9 @@ export const metadata: Metadata = { title: "HVAC price estimate" };
 
 export default function Page() {
   return (
-    <AppShell active="costs" title="HVAC price estimate" sub="123 Happiness Street · based on 47 verified invoices from similar homes in the Tampa Bay area.">
+    <AppShell active="health" title="Price estimate" sub="123 Happiness Street · fair local prices from verified homeowner invoices in the Tampa Bay area.">
       <div className="ux-docbar">
-        <Link className="ux-link" href="/app/costs">← Back to Costs & estimates</Link>
+        <Link className="ux-link" href="/app/health?tab=reports">← Back to reports</Link>
         <span className="r">
           <button className="ux-btn sec sm" data-act="print">
             <svg width="16" height="16">
@@ -22,12 +22,21 @@ export default function Page() {
             </svg>{" "}Download PDF</button>
         </span>
       </div>
+      <div className="ux-pickrow">
+        <label htmlFor="est-job">Price estimate for</label>
+        <select className="ux-select" id="est-job">
+          <option value="hvac">HVAC replacement</option>
+          <option value="wh">Water heater replacement</option>
+          <option value="roof">Roof replacement</option>
+        </select>
+        <span className="ux-muted" id="est-basis">Based on 47 verified invoices from similar homes.</span>
+      </div>
       <div className="ux-plans" style={{ marginTop: "0" }}>
         <div className="ux-card ux-plan">
           <h3>Basic</h3>
           <p className="ux-for">Reliable and functional.</p>
-          <div className="ux-price num sm">$8,200 – $10,400</div>
-          <ul>
+          <div className="ux-price num sm" id="est-r0">$8,200 – $10,400</div>
+          <ul id="est-b0">
             <li>
               <svg width="17" height="17">
                 <use href="#i-check" />
@@ -50,8 +59,8 @@ export default function Page() {
           <span className="ux-tag teal ux-badge" style={{ background: "var(--teal-deep)", color: "#fff" }}>Most popular</span>
           <h3>Mid-range</h3>
           <p className="ux-for">The best balance of comfort, efficiency and price.</p>
-          <div className="ux-price num sm">$10,500 – $13,800</div>
-          <ul>
+          <div className="ux-price num sm" id="est-r1">$10,500 – $13,800</div>
+          <ul id="est-b1">
             <li>
               <svg width="17" height="17">
                 <use href="#i-check" />
@@ -73,8 +82,8 @@ export default function Page() {
         <div className="ux-card ux-plan">
           <h3>Higher-end</h3>
           <p className="ux-for">Quietest, with the lowest running cost.</p>
-          <div className="ux-price num sm">$14,500 – $19,000+</div>
-          <ul>
+          <div className="ux-price num sm" id="est-r2">$14,500 – $19,000+</div>
+          <ul id="est-b2">
             <li>
               <svg width="17" height="17">
                 <use href="#i-check" />
@@ -103,11 +112,11 @@ export default function Page() {
                 <tr>
                   <th>Date</th>
                   <th>Home size</th>
-                  <th>System</th>
+                  <th id="est-col">System</th>
                   <th className="r">Total cost</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="est-rows">
                 <tr>
                   <td>Aug 2026</td>
                   <td className="num">2,400 sq ft</td>
@@ -145,7 +154,7 @@ export default function Page() {
                     <b>Median, Tampa Bay area</b>
                   </td>
                   <td className="num r">
-                    <b>$11,975</b>
+                    <b id="est-median">$11,975</b>
                   </td>
                 </tr>
               </tfoot>
@@ -156,20 +165,20 @@ export default function Page() {
           <div className="ux-eyebrow" style={{ color: "var(--slate)" }}>Compare a quote you have</div>
           <div className="ux-quote">
             <span>Your quote</span>
-            <b className="num">$15,900</b>
+            <b className="num" id="est-quote">$15,900</b>
           </div>
           <div className="ux-range">
             <div className="track over">
               <span className="dot" data-typ="Your quote" style={{ left: "92%" }}></span>
             </div>
             <div className="ends">
-              <span>$10,500</span>
+              <span id="est-lo">$10,500</span>
               <span>Fair range</span>
-              <span>$13,800</span>
+              <span id="est-hi">$13,800</span>
             </div>
           </div>
           <p style={{ marginTop: "14px" }}>
-            <span className="ux-tag red">$2,100 above the fair range</span>
+            <span className="ux-tag red" id="est-tag">$2,100 above the fair range</span>
           </p>
           <p className="ux-muted" style={{ fontSize: "14.5px", marginTop: "8px" }}>Worth getting more quotes before you decide.</p>
           <button className="ux-btn pri block" style={{ marginTop: "14px" }} data-act="quotes">Request quotes from 3 pros</button>

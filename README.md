@@ -23,7 +23,7 @@ Import the repository in Vercel and keep the Next.js defaults. Every push to `ma
 
 | Path | What |
 | --- | --- |
-| `src/app/**/page.tsx` | One file per screen (33 screens). Markup only. |
+| `src/app/**/page.tsx` | One file per screen (34 screens). Markup only. |
 | `src/app/prototype.css` | All styles, scoped under `.timp`. |
 | `src/components/proto/` | Shells (public nav, app sidebar, agent sidebar), dialogs, guide, click behaviour. |
 | `src/components/proto/Behaviors.tsx` | Every click behaviour, driven by `data-*` attributes in the markup. |
