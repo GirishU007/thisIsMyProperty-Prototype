@@ -22,27 +22,55 @@ export default function Page() {
           <p>In October 2025, over lunch near the Mediterranean, Stacy asked them a question:</p>
           <blockquote>“What if every homeowner had one place to preserve, understand and manage the history and health of their home?”</blockquote>
           <p>In March 2026, the three began building the answer. What started as a way to document home improvements became ThisIsMyProperty, a platform that helps homeowners organize, maintain, improve and understand one of their most important investments.</p>
-          <div className="ux-grid3 ux-founders">
-            <div className="ux-card">
-              <span className="avatar lg">SK</span>
-              <b>Stacy Kitchell</b>
-              <span>Founder & CEO</span>
-            </div>
-            <div className="ux-card">
-              <span className="avatar lg">SU</span>
-              <b>Shivi Ukarande</b>
-              <span>Co-Founder & Chief Product Officer</span>
-            </div>
-            <div className="ux-card">
-              <span className="avatar lg">GU</span>
-              <b>Girish Ukarande</b>
-              <span>Co-Founder & Chief Technology Officer</span>
-            </div>
-          </div>
           <p>Their shared values shaped the company’s mission: empower homeowners, strengthen the professionals and communities that serve them, and make giving back part of the company’s purpose.{" "}
             <Link className="ux-link" href="/mission">Read our mission →</Link>
           </p>
-          <p className="close">A home needs a living record. ThisIsMyProperty is building it.</p>
+        </div>
+      </section>
+      <section className="ux-sec tint">
+        <div className="ux-in">
+          <div className="ux-eyebrow">Team</div>
+          <h2 className="ux-h2" style={{ textAlign: "left", marginTop: "8px" }}>Built by people who’ve lived the problem.</h2>
+          <div className="ux-grid3 ux-team">
+            <div className="ux-card ux-member">
+              <div className="top">
+                <span className="ph team-stacy" role="img" aria-label="Stacy Kitchell"></span>
+                <div>
+                  <h3>Stacy Kitchell</h3>
+                  <span className="role">Founder & CEO</span>
+                </div>
+              </div>
+              <p>35+ years across real estate sales and investing, finance, enterprise technology and entrepreneurship. Leads fundraising, partnerships and go-to-market.</p>
+              <a className="ux-link" href="https://www.linkedin.com/in/stacy-kitchell-2065903a" target="_blank" rel="noopener noreferrer">linkedin.com/in/stacy-kitchell-2065903a</a>
+            </div>
+            <div className="ux-card ux-member">
+              <div className="top">
+                <span className="ph team-shivi" role="img" aria-label="Shivi Ukarande"></span>
+                <div>
+                  <h3>Shivi Ukarande</h3>
+                  <span className="role">Co-Founder & CPO</span>
+                </div>
+              </div>
+              <p>Investment banker with deep customer-experience expertise. Leads product strategy and the end-to-end customer experience. Co-Founder of Heirportal.</p>
+              <a className="ux-link" href="https://www.linkedin.com/in/shivi-ukarande-2295a01" target="_blank" rel="noopener noreferrer">linkedin.com/in/shivi-ukarande-2295a01</a>
+            </div>
+            <div className="ux-card ux-member">
+              <div className="top">
+                <span className="ph team-girish" role="img" aria-label="Girish Ukarande"></span>
+                <div>
+                  <h3>Girish Ukarande</h3>
+                  <span className="role">Co-Founder & CTO</span>
+                </div>
+              </div>
+              <p>20+ years leading enterprise platform strategy, architecture and engineering in complex, regulated environments. Leads technology, reliability and scale.</p>
+              <a className="ux-link" href="https://www.linkedin.com/in/girishukarande" target="_blank" rel="noopener noreferrer">linkedin.com/in/girishukarande</a>
+            </div>
+          </div>
+          <div className="ux-banner">
+            <b>A home needs a living record. ThisIsMyProperty is building it.</b>
+            <span>ThisIsMyProperty.com</span>
+          </div>
+          <p className="ux-fine" style={{ textAlign: "left", marginTop: "16px" }}>The idea began with Stacy’s nearly 20 years documenting client homes in Tampa Bay.</p>
         </div>
       </section>
       <PublicFooter />
