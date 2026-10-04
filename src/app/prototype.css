@@ -3418,9 +3418,46 @@
 @media (max-width:600px){
   .timp .ux-procard .acts .ux-btn{min-width:0;white-space:normal;padding-left:10px;padding-right:10px}
 }
-.timp .ux-guidebtn{text-transform:capitalize}
-.timp .ux-guidebtn .w{text-transform:none}
+.timp .ux-guidebtn{gap:0}
+.timp .ux-guidebtn .w{white-space:pre}
 @media (max-width:600px){
-  .timp .ux-guidebtn{min-height:34px;padding:6px 12px;font-size:12.5px;opacity:.94}
+  .timp .ux-guidebtn{min-height:34px;padding:6px 12px;font-size:12.5px;opacity:.94;text-transform:capitalize}
   .timp .ux-guidebtn .w{display:none}
+}
+
+/* feedback round 1: item dropdowns, star ratings, About page */
+.timp .ux-select{appearance:auto;min-height:40px;padding:6px 10px;border:1px solid var(--line);border-radius:9px;background:#fff;
+  font:inherit;font-size:15px;font-weight:600;color:var(--navy);max-width:100%;cursor:pointer}
+.timp .ux-select:focus-visible{outline:2px solid var(--teal-deep);outline-offset:1px}
+.timp .ux-pickrow{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin-bottom:16px}
+.timp .ux-pickrow label{font-size:15px;font-weight:700;color:var(--navy)}
+.timp .ux-pickrow .ux-muted{font-size:14px}
+.timp .ux-pro .ux-rev{display:flex;flex-wrap:wrap;align-items:center;gap:4px 7px;margin:2px 0}
+.timp .ux-pro .ux-rev b{display:inline;font-size:13.5px}
+.timp .ux-pro .ux-rev a{font-size:13.5px;text-decoration:underline;text-underline-offset:2px}
+.timp .ux-pro .ux-stars{display:inline-flex;gap:1px;color:#E8B23A}
+.timp .ux-story h1{font-family:var(--serif);font-size:44px;line-height:1.1;color:var(--navy);margin-top:10px}
+.timp .ux-story p{font-size:17px;line-height:1.65;color:#3E5265;margin-top:18px}
+.timp .ux-story p.lede{font-size:20px;color:var(--navy);margin-top:16px}
+.timp .ux-story blockquote{margin:22px 0 4px;padding:6px 0 6px 20px;border-left:4px solid var(--teal);font-family:var(--serif);
+  font-size:24px;line-height:1.4;font-style:italic;color:var(--navy)}
+.timp .ux-story p.close{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--navy);margin-top:26px}
+.timp .ux-founders{margin-top:26px}
+.timp .ux-founders .ux-card{display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:18px}
+.timp .ux-founders .avatar{margin-bottom:8px}
+.timp .ux-founders b{font-size:16.5px;color:var(--navy)}
+.timp .ux-founders span:last-child{font-size:14px;color:var(--slate)}
+@media (max-width:600px){
+  .timp .ux-story h1{font-size:34px}
+  .timp .ux-story blockquote{font-size:20px}
+  .timp .ux-task .ux-select{width:100%}
+}
+/* five nav links: keep them on one line, and collapse to the menu button earlier */
+.timp .ux-nav-links a{white-space:nowrap}
+@media (max-width:1180px){
+  .timp .ux-nav-links{display:none}
+  .timp .ux-nav-links.is-open{display:flex;flex-direction:column;gap:0;position:absolute;top:100%;left:0;right:0;background:#fff;
+    border-bottom:1px solid var(--line);padding:6px 16px 12px;box-shadow:var(--shadow-md)}
+  .timp .ux-nav-links.is-open a{padding:13px 0;border-bottom:1px solid var(--line-soft);font-size:16px}
+  .timp .ux-navbtn{display:inline-flex}
 }

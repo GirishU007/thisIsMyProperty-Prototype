@@ -9,6 +9,7 @@ export const SCREENS: { group: string; items: { href: string; label: string }[] 
       { href: "/agents", label: "For agents" },
       { href: "/pricing/agents", label: "Pricing: agents" },
       { href: "/mission", label: "Our mission" },
+      { href: "/about", label: "About us" },
       { href: "/pros", label: "Find a pro (public)" },
       { href: "/pros/join", label: "For service pros" },
       { href: "/brokers", label: "Brokers & teams" },

@@ -63,6 +63,115 @@ const JOBS: Record<string, [string, string, string, string, string, string, stri
   hvac: ["$10,500 – $13,800", "4-ton, 16 to 18 SEER2 system, installed, with removal of the old unit.", "Typical $11,975", "45%", "$6,900", "$4,300", "$775"],
   roof: ["$14,500 – $22,000", "Architectural shingles, about 28 squares, tear-off included.", "Typical $17,800", "43%", "$8,900", "$7,700", "$1,200"],
 };
+/* the full price estimate report, per job (/app/costs/estimate?job=...) */
+type Estimate = {
+  basis: string;
+  ranges: [string, string, string];
+  bullets: [string[], string[], string[]];
+  col: string;
+  rows: [string, string, string, string][];
+  median: string;
+  quote: string;
+  lo: string;
+  hi: string;
+  tag: string;
+};
+const ESTIMATES: Record<string, Estimate> = {
+  hvac: {
+    basis: "Based on 47 verified invoices from similar homes.",
+    ranges: ["$8,200 – $10,400", "$10,500 – $13,800", "$14,500 – $19,000+"],
+    bullets: [
+      ["Standard efficiency, 14 to 16 SEER2", "Single-stage system", "1 to 5 year parts warranty"],
+      ["Higher efficiency, 16 to 18 SEER2", "Two-stage or variable speed", "5 to 10 year parts warranty"],
+      ["High efficiency, 18 to 22+ SEER2", "Variable speed, smart controls", "10+ year parts warranty"],
+    ],
+    col: "System",
+    rows: [
+      ["Aug 2026", "2,400 sq ft", "3.5 ton", "$10,850"],
+      ["Jul 2026", "2,850 sq ft", "4 ton", "$11,975"],
+      ["Jun 2026", "3,000 sq ft", "4 ton", "$12,400"],
+      ["Apr 2026", "2,700 sq ft", "3.5 ton", "$11,200"],
+      ["Mar 2026", "3,200 sq ft", "5 ton", "$13,600"],
+    ],
+    median: "$11,975",
+    quote: "$15,900",
+    lo: "$10,500",
+    hi: "$13,800",
+    tag: "$2,100 above the fair range",
+  },
+  wh: {
+    basis: "Based on 38 verified invoices from similar homes.",
+    ranges: ["$1,150 – $1,600", "$1,450 – $2,300", "$3,200 – $4,800"],
+    bullets: [
+      ["40-gallon electric tank", "Standard efficiency", "6 year tank warranty"],
+      ["50-gallon electric tank", "Better insulation, faster recovery", "9 to 12 year tank warranty"],
+      ["Heat pump (hybrid) water heater", "Lowest running cost", "10+ year warranty"],
+    ],
+    col: "Tank",
+    rows: [
+      ["Aug 2026", "2,600 sq ft", "50 gal electric", "$1,780"],
+      ["Jul 2026", "2,850 sq ft", "50 gal electric", "$1,850"],
+      ["Jun 2026", "2,200 sq ft", "40 gal electric", "$1,520"],
+      ["May 2026", "3,100 sq ft", "65 gal hybrid", "$3,950"],
+      ["Mar 2026", "2,900 sq ft", "50 gal electric", "$2,150"],
+    ],
+    median: "$1,850",
+    quote: "$2,750",
+    lo: "$1,450",
+    hi: "$2,300",
+    tag: "$450 above the fair range",
+  },
+  roof: {
+    basis: "Based on 52 verified invoices from similar homes.",
+    ranges: ["$11,500 – $14,400", "$14,500 – $22,000", "$24,000 – $38,000+"],
+    bullets: [
+      ["3-tab asphalt shingles", "Standard underlayment", "10 year workmanship warranty"],
+      ["Architectural shingles", "Synthetic underlayment, wind rated", "25 to 30 year shingle warranty"],
+      ["Metal or tile roof", "Longest life, best wind rating", "40+ year material warranty"],
+    ],
+    col: "Roof size",
+    rows: [
+      ["Aug 2026", "2,700 sq ft", "27 squares", "$16,900"],
+      ["Jul 2026", "2,850 sq ft", "28 squares", "$17,800"],
+      ["Jun 2026", "3,000 sq ft", "31 squares", "$19,400"],
+      ["Apr 2026", "2,400 sq ft", "24 squares", "$15,200"],
+      ["Mar 2026", "3,200 sq ft", "33 squares", "$21,300"],
+    ],
+    median: "$17,800",
+    quote: "$24,600",
+    lo: "$14,500",
+    hi: "$22,000",
+    tag: "$2,600 above the fair range",
+  },
+};
+function showEstimate(job: string) {
+  const e = ESTIMATES[job];
+  const sel = $("est-job") as HTMLSelectElement | null;
+  if (!e || !sel) return;
+  sel.value = job;
+  setText($("est-basis"), e.basis);
+  const tick = '<svg width="17" height="17"><use href="#i-check"/></svg> ';
+  e.ranges.forEach((r, i) => {
+    setText($("est-r" + i), r);
+    const ul = $("est-b" + i);
+    if (ul) {
+      ul.innerHTML = [...e.bullets[i], "Removal and disposal included"].map((b) => "<li>" + tick + b + "</li>").join("");
+    }
+  });
+  setText($("est-col"), e.col);
+  const rows = $("est-rows");
+  if (rows) {
+    rows.innerHTML = e.rows
+      .map((r) => `<tr><td>${r[0]}</td><td class="num">${r[1]}</td><td>${r[2]}</td><td class="num r">${r[3]}</td></tr>`)
+      .join("");
+  }
+  setText($("est-median"), e.median);
+  setText($("est-quote"), e.quote);
+  setText($("est-lo"), e.lo);
+  setText($("est-hi"), e.hi);
+  setText($("est-tag"), e.tag);
+}
+
 const QUOTES_TITLE = "Quotes requested";
 const QUOTES_SUB =
   "Three pros have the job details. Quotes usually arrive within two days and will appear in To do, next to the fair price range.";
@@ -157,6 +266,15 @@ export function Behaviors() {
     document.body.classList.remove("nav-open");
     all("[data-modal]").forEach((m) => (m.hidden = true));
     one(".ux-nav-links.is-open")?.classList.remove("is-open");
+    /* deep links: /app/health?tab=reports and /app/costs/estimate?job=roof */
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("tab") === "reports" && $("health-reports")) {
+      const tab = one('#health-tabs [data-tab="reports"]');
+      if (tab) pick("#health-tabs [data-tab]", tab);
+      show($("health-systems"), false);
+      show($("health-reports"), true);
+    }
+    if ($("est-job")) showEstimate(params.get("job") || "hvac");
     sync();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
@@ -335,6 +453,9 @@ export function Behaviors() {
               .join("")
               .slice(0, 2)
           );
+        } else if (act === "open-estimate") {
+          const sel = $("rep-job") as HTMLSelectElement | null;
+          router.push("/app/costs/estimate?job=" + (sel?.value || "hvac"));
         } else if (act === "print") {
           window.print();
         } else if (act === "notify") {
@@ -383,7 +504,7 @@ export function Behaviors() {
         setText($("c-a"), j[4]);
         setText($("c-b"), j[5]);
         setText($("c-c"), j[6]);
-        show($("c-full"), k === "hvac");
+        $("c-full")?.setAttribute("data-go", "/app/costs/estimate?job=" + k);
         return;
       }
       /* filters: chips in #x-filter show the rows of #x-list whose data-type matches */
@@ -425,10 +546,17 @@ export function Behaviors() {
       closeMenus();
     };
 
+    const onChange = (e: Event) => {
+      const t = e.target as HTMLSelectElement | null;
+      if (t && t.id === "est-job") showEstimate(t.value);
+    };
+
     document.addEventListener("click", onClick);
+    document.addEventListener("change", onChange);
     document.addEventListener("keydown", onKey);
     return () => {
       document.removeEventListener("click", onClick);
+      document.removeEventListener("change", onChange);
       document.removeEventListener("keydown", onKey);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps

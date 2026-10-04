@@ -46,7 +46,7 @@ export default function Page() {
               <b className="num" id="c-c">$250</b>
             </div>
           </div>
-          <Link className="ux-link ux-skip" id="c-full" href="/app/costs/estimate" hidden>Open the full HVAC estimate report →</Link>
+          <button className="ux-link ux-skip" id="c-full" data-go="/app/costs/estimate?job=wh">Open the full price estimate report →</button>
           <div className="ux-note" style={{ marginTop: "16px" }}>
             <svg width="17" height="17">
               <use href="#i-info" />
@@ -61,21 +61,84 @@ export default function Page() {
             <span className="av hpav0"></span>
             <div>
               <b>Harbor Plumbing</b>
-              <span>4.9 · 212 jobs · Licensed and insured</span>
+              <span className="ux-rev">
+                <span className="ux-stars" aria-hidden="true">
+                  <svg width="14" height="14">
+                    <use href="#i-star-f" />
+                  </svg>
+                  <svg width="14" height="14">
+                    <use href="#i-star-f" />
+                  </svg>
+                  <svg width="14" height="14">
+                    <use href="#i-star-f" />
+                  </svg>
+                  <svg width="14" height="14">
+                    <use href="#i-star-f" />
+                  </svg>
+                  <svg width="14" height="14">
+                    <use href="#i-star-f" />
+                  </svg>
+                </span>
+                <b className="num">4.9</b>
+                <a className="ux-link" data-toast="Opens the Google reviews for Harbor Plumbing in a new tab.">212 Google reviews</a>
+              </span>
+              <span>Licensed and insured</span>
             </div>
           </div>
           <div className="ux-pro">
             <span className="av hpav1"></span>
             <div>
               <b>Gulf Coast Water Heaters</b>
-              <span>4.8 · 147 jobs · Licensed and insured</span>
+              <span className="ux-rev">
+                <span className="ux-stars" aria-hidden="true">
+                  <svg width="14" height="14">
+                    <use href="#i-star-f" />
+                  </svg>
+                  <svg width="14" height="14">
+                    <use href="#i-star-f" />
+                  </svg>
+                  <svg width="14" height="14">
+                    <use href="#i-star-f" />
+                  </svg>
+                  <svg width="14" height="14">
+                    <use href="#i-star-f" />
+                  </svg>
+                  <svg width="14" height="14">
+                    <use href="#i-star-f" />
+                  </svg>
+                </span>
+                <b className="num">4.8</b>
+                <a className="ux-link" data-toast="Opens the Google reviews for Gulf Coast Water Heaters in a new tab.">147 Google reviews</a>
+              </span>
+              <span>Licensed and insured</span>
             </div>
           </div>
           <div className="ux-pro">
             <span className="av hpav2"></span>
             <div>
               <b>Sunline Home Services</b>
-              <span>4.7 · 96 jobs · Licensed and insured</span>
+              <span className="ux-rev">
+                <span className="ux-stars" aria-hidden="true">
+                  <svg width="14" height="14">
+                    <use href="#i-star-f" />
+                  </svg>
+                  <svg width="14" height="14">
+                    <use href="#i-star-f" />
+                  </svg>
+                  <svg width="14" height="14">
+                    <use href="#i-star-f" />
+                  </svg>
+                  <svg width="14" height="14">
+                    <use href="#i-star-f" />
+                  </svg>
+                  <svg width="14" height="14">
+                    <use href="#i-star-f" />
+                  </svg>
+                </span>
+                <b className="num">4.7</b>
+                <a className="ux-link" data-toast="Opens the Google reviews for Sunline Home Services in a new tab.">96 Google reviews</a>
+              </span>
+              <span>Licensed and insured</span>
             </div>
           </div>
           <button className="ux-btn pri block" style={{ marginTop: "14px" }} data-act="quotes">Request quotes from all three</button>

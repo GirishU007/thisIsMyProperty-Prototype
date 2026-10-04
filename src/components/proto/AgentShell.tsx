@@ -31,7 +31,7 @@ export function AgentShell({
   return (
     <div className="ux ux-app app">
       <aside className="side side-agent">
-        <Link className="side-brand" href="/agent">
+        <Link className="side-brand" href="/" aria-label="ThisIsMyProperty.com home">
           <Brand />
         </Link>
         {NAV.map((n) => (

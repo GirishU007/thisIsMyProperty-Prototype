@@ -5,7 +5,7 @@ export function PublicFooter() {
     <footer className="ux-foot">
       <div className="ux-foot-in">
         <span>© 2026 ThisIsMyProperty.com</span>
-        <Link href="/mission">Our mission</Link>
+        <Link href="/about">About us</Link>
         <Link href="/pros">Find a pro</Link>
         <Link href="/pros/join">For service pros</Link>
         <Link href="/brokers">Brokers &amp; teams</Link>

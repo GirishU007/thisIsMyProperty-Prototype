@@ -18,8 +18,8 @@ screens are styled by one plain stylesheet, `src/app/prototype.css`, scoped unde
 ## Structure
 
 - `src/app/layout.tsx`: fonts (Figtree, Source Serif 4), global CSS, wraps everything in `<Shell>`.
-- `src/app/**/page.tsx`: one server component per screen, markup only. 33 screens:
-  - Public: `/`, `/how`, `/pricing`, `/pricing/agents`, `/agents`, `/mission`, `/pros`, `/pros/join`, `/brokers`
+- `src/app/**/page.tsx`: one server component per screen, markup only. 34 screens:
+  - Public: `/`, `/how`, `/pricing`, `/pricing/agents`, `/agents`, `/mission`, `/about`, `/pros`, `/pros/join`, `/brokers`
   - Sign-up: `/start`, `/signup`, `/signup/agent`, `/setup/home`, `/setup/document`, `/setup/score`
   - Homeowner app: `/app`, `/app/todo`, `/app/health`, `/app/health/report`, `/app/health/improvements`,
     `/app/vault`, `/app/costs`, `/app/costs/estimate`, `/app/pros`, `/app/property`, `/app/help`
@@ -47,6 +47,8 @@ screens are styled by one plain stylesheet, `src/app/prototype.css`, scoped unde
     `data-job`, `data-sys`, `data-cycle` (swaps text to `data-m` / `data-y`).
 - **State** (HVAC scheduled, roof scheduled, document added) lives in `sessionStorage` and is re-applied
   to each screen by `sync()` in `Behaviors.tsx`. Signing out clears it.
+- **Deep links** read by `Behaviors.tsx`: `/app/health?tab=reports` opens the Reports tab;
+  `/app/costs/estimate?job=hvac|wh|roof` picks the job (data in `ESTIMATES`).
 - **Session**: visiting `/app...` sets the cookie `timp_session=ho`, `/agent...` sets `agent`.
   `PublicNav` reads it and shows "My dashboard" and the account menu instead of "Sign in / Get started".
   `/signout` clears it. Use a plain `<a href="/signout">`, not `<Link>` (a prefetch must not sign out).

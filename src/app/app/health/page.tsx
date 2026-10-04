@@ -205,10 +205,15 @@ export default function Page() {
               </svg>
             </span>
             <div className="tx">
-              <b>HVAC price estimate</b>
-              <span>Fair local prices for a replacement, from 47 verified invoices.</span>
+              <b>Price estimates</b>
+              <span>Fair local prices for a job, from verified homeowner invoices.</span>
             </div>
-            <Link className="ux-btn sec sm" href="/app/costs/estimate">Open report</Link>
+            <select className="ux-select" id="rep-job" aria-label="Job to price">
+              <option value="hvac">HVAC replacement</option>
+              <option value="wh">Water heater replacement</option>
+              <option value="roof">Roof replacement</option>
+            </select>
+            <button className="ux-btn sec sm" data-act="open-estimate">Open report</button>
           </div>
         </div>
         <div className="ux-note" style={{ marginTop: "16px" }}>
