@@ -3461,3 +3461,23 @@
   .timp .ux-nav-links.is-open a{padding:13px 0;border-bottom:1px solid var(--line-soft);font-size:16px}
   .timp .ux-navbtn{display:inline-flex}
 }
+
+/* About: team */
+.timp .ux-team{margin-top:26px}
+.timp .ux-member{display:flex;flex-direction:column;padding:26px}
+.timp .ux-member .top{display:flex;align-items:center;gap:16px}
+.timp .ux-member .ph{width:84px;height:84px;border-radius:50%;flex-shrink:0;background:#DCE9EF center/cover no-repeat}
+.timp .ux-member .team-stacy{background-image:url("/images/timp/team-stacy.jpg")}
+.timp .ux-member .team-shivi{background-image:url("/images/timp/team-shivi.jpg")}
+.timp .ux-member .team-girish{background-image:url("/images/timp/team-girish.jpg")}
+.timp .ux-member h3{font-size:20px;color:var(--navy)}
+.timp .ux-member .role{display:block;font-size:15.5px;font-weight:600;color:var(--teal-deep);margin-top:2px}
+.timp .ux-member p{font-size:15.5px;line-height:1.55;color:#3E5265;margin:16px 0 14px;flex:1}
+.timp .ux-member .ux-link{font-weight:600;color:var(--slate);overflow-wrap:anywhere}
+.timp .ux-member .ux-link:hover{color:var(--teal-deep)}
+.timp .ux-banner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 24px;margin-top:22px;
+  padding:26px 30px;border-radius:14px;background:var(--navy);color:#fff}
+.timp .ux-banner b{font-family:var(--serif);font-size:22px;font-weight:600}
+.timp .ux-banner span{font-size:17px;font-weight:700;color:#3CC6C3}
+@media (max-width:900px){.timp .ux-team{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:600px){.timp .ux-banner{padding:20px}.timp .ux-banner b{font-size:19px}}
