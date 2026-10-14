@@ -88,7 +88,7 @@ export default function Page() {
           <div>
             <div className="ux-eyebrow">Try it</div>
             <h2 style={{ marginTop: "8px" }}>Every system in your home gets a score.</h2>
-            <p>Pick a system to see what ThisIsMyProperty tracks for it.</p>
+            <p>Pick a system, here or on the house, to see what ThisIsMyProperty tracks for it.</p>
             <div className="ux-syschips" id="home-chips">
               <button className="ux-syschip is-on" data-sys="roof">
                 <svg width="16" height="16">
@@ -128,6 +128,18 @@ export default function Page() {
           </div>
           <div className="ux-house-pic">
             <img src="/images/timp/home-sbs-house.jpg" alt="Cutaway view of a home showing its major systems" />
+            <button className="ux-pin is-on" data-sys="roof" style={{ left: "48%", top: "11%" }}>
+              <i></i>Roof</button>
+            <button className="ux-pin" data-sys="electrical" style={{ left: "40%", top: "37%" }}>
+              <i></i>Electrical</button>
+            <button className="ux-pin" data-sys="hvac" style={{ left: "88%", top: "46%" }}>
+              <i></i>HVAC</button>
+            <button className="ux-pin" data-sys="appliances" style={{ left: "74%", top: "66%" }}>
+              <i></i>Appliances</button>
+            <button className="ux-pin" data-sys="plumbing" style={{ left: "58%", top: "78%" }}>
+              <i></i>Plumbing</button>
+            <button className="ux-pin" data-sys="water" style={{ left: "21%", top: "72%" }}>
+              <i></i>Water heater</button>
           </div>
         </div>
       </section>

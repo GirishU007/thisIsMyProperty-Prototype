@@ -116,7 +116,7 @@ export default function Page() {
             </div>
           </div>
           <p className="ux-allplans">
-            <b>On every plan:</b>{" "}client phone numbers and emails are never sold or shared, certified data and reports, extra estimates at $25 each.</p>
+            <b>On every plan:</b>{" "}client phone numbers and emails are never sold or shared, certified data and reports, extra estimates available.</p>
           <div className="ux-card" style={{ marginTop: "28px", textAlign: "left" }}>
             <h3 style={{ fontSize: "18px" }}>Advertising add-ons{" "}
               <span className="ux-muted" style={{ fontWeight: "500", fontSize: "14.5px" }}>· Realtor Pro only</span>
@@ -125,24 +125,25 @@ export default function Page() {
               <table className="ux-table">
                 <tbody>
                   <tr>
-                    <td>Preferred vendors page on the website</td>
-                    <td className="num r">$39</td>
+                    <td>Preferred vendors page on the website<span className="s">Vendors are picked for positive reviews and customer feedback.</span>
+                    </td>
+                    <td className="r">Contact sales</td>
                   </tr>
                   <tr>
                     <td>Weekly Facebook ad, image only</td>
-                    <td className="num r">$49</td>
+                    <td className="r">Contact sales</td>
                   </tr>
                   <tr>
                     <td>Featured Facebook / Instagram vendor, video under 2 minutes</td>
-                    <td className="num r">$89</td>
+                    <td className="r">Contact sales</td>
                   </tr>
                   <tr>
                     <td>Featured Facebook / Instagram vendor, 5 to 10 minute video reposted weekly for a month</td>
-                    <td className="num r">$399</td>
+                    <td className="r">Contact sales</td>
                   </tr>
                   <tr>
                     <td>Featured vendor podcast, 45 minutes, with promo video, 2 emails and YouTube</td>
-                    <td className="num r">$1,499</td>
+                    <td className="r">Contact sales</td>
                   </tr>
                   <tr>
                     <td>Featured vendor postcard{" "}
