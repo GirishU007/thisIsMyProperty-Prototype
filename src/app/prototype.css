@@ -3482,16 +3482,28 @@
 @media (max-width:900px){.timp .ux-team{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:600px){.timp .ux-banner{padding:20px}.timp .ux-banner b{font-size:19px}}
 
-/* feedback round 2: labelled house, add-on notes */
-.timp .ux-pin{position:absolute;transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:6px;padding:5px 10px 5px 6px;
-  border-radius:999px;background:rgba(255,255,255,.94);border:1px solid var(--line);box-shadow:0 2px 8px rgba(14,42,68,.18);
+/* feedback round 2: labelled house (labels in the side gutters, leader lines to each system) */
+.timp .ux-house-pic.labelled{position:relative;padding:0 18%}
+.timp .ux-house-pic.labelled .frame{position:relative}
+.timp .ux-leaders{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.timp .ux-leaders line{stroke:#7A8FA3;stroke-width:1.5;vector-effect:non-scaling-stroke}
+.timp .ux-tgt{position:absolute;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:var(--teal);
+  box-shadow:0 0 0 3px rgba(255,255,255,.9),0 0 0 5px rgba(25,167,165,.35);pointer-events:none}
+.timp .ux-pin{position:absolute;top:var(--ly);transform:translateY(-50%);display:inline-flex;align-items:center;gap:6px;padding:5px 10px 5px 6px;
+  border-radius:999px;background:#fff;border:1px solid var(--line);box-shadow:0 2px 8px rgba(14,42,68,.14);
   font-size:13px;font-weight:700;color:var(--navy);white-space:nowrap;cursor:pointer}
-.timp .ux-pin i{width:10px;height:10px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 3px rgba(25,167,165,.25)}
+.timp .ux-pin.L{right:calc(82% + 4px)}
+.timp .ux-pin.R{left:calc(82% + 4px)}
+.timp .ux-pin i{width:9px;height:9px;border-radius:50%;background:var(--teal)}
 .timp .ux-pin:hover{border-color:var(--teal-deep)}
 .timp .ux-pin.is-on{background:var(--navy);border-color:var(--navy);color:#fff}
 .timp .ux-pin.is-on i{background:#6FD6D3}
-.timp .ux-table td .s{display:block;font-size:13.5px;color:var(--slate);margin-top:2px}
 @media (max-width:600px){
-  .timp .ux-pin{font-size:11.5px;padding:3px 8px 3px 4px;gap:4px}
+  /* no room for side labels on a phone: labels sit on the house, without leader lines */
+  .timp .ux-house-pic.labelled{padding:0}
+  .timp .ux-leaders,.timp .ux-tgt{display:none}
+  .timp .ux-pin,.timp .ux-pin.L,.timp .ux-pin.R{left:var(--px);right:auto;top:var(--py);transform:translate(-50%,-50%);
+    font-size:11.5px;padding:3px 8px 3px 4px;gap:4px}
   .timp .ux-pin i{width:8px;height:8px}
 }
+.timp .ux-table td .s{display:block;font-size:13.5px;color:var(--slate);margin-top:2px}
