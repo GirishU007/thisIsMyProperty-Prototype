@@ -56,7 +56,7 @@ export default function Page() {
               <span className="n">1</span>
               <div>
                 <h3>Give it at closing</h3>
-                <p>A free Property Vault is a closing gift your clients keep using.</p>
+                <p>A free Property Vault is a closing gift your clients keep using. With homeowner approval, you can follow their home’s health.</p>
               </div>
             </li>
             <li>
@@ -103,7 +103,7 @@ export default function Page() {
                 </svg>
               </span>
               <h3>Client vaults</h3>
-              <p>Every home your clients have shared with you.</p>
+              <p>Every home your clients have shared with you, with homeowner approval.</p>
             </div>
             <div className="ux-card ux-feat">
               <span className="ic">
@@ -112,7 +112,7 @@ export default function Page() {
                 </svg>
               </span>
               <h3>Alerts</h3>
-              <p>Maintenance, recalls and warranties across your clients.</p>
+              <p>Maintenance, recalls and warranties across your clients, with homeowner approval.</p>
             </div>
             <div className="ux-card ux-feat">
               <span className="ic">
@@ -123,6 +123,14 @@ export default function Page() {
               <h3>Marketing</h3>
               <p>Ready-made emails, posts and flyers.</p>
             </div>
+          </div>
+          <div className="ux-note" style={{ marginTop: "18px" }}>
+            <svg width="17" height="17">
+              <use href="#i-lock" />
+            </svg>
+            {" "}
+            <span>
+              <b>With homeowner approval.</b>{" "}You see a client’s home, documents and alerts only after the homeowner chooses to share them, and they can stop sharing at any time.</span>
           </div>
           <div className="ux-proof" style={{ marginTop: "40px" }}>
             <div className="q">

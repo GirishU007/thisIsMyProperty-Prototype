@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 // Screen markup only. Styles are in src/app/prototype.css, click behaviour in
 // src/components/proto/Behaviors.tsx.
+import type React from "react";
 import type { Metadata } from "next";
 import { PublicNav } from "@/components/proto/PublicNav";
 import { PublicFooter } from "@/components/proto/PublicFooter";
@@ -88,7 +89,7 @@ export default function Page() {
           <div>
             <div className="ux-eyebrow">Try it</div>
             <h2 style={{ marginTop: "8px" }}>Every system in your home gets a score.</h2>
-            <p>Pick a system to see what ThisIsMyProperty tracks for it.</p>
+            <p>Pick a system, here or on the house, to see what ThisIsMyProperty tracks for it.</p>
             <div className="ux-syschips" id="home-chips">
               <button className="ux-syschip is-on" data-sys="roof">
                 <svg width="16" height="16">
@@ -126,8 +127,36 @@ export default function Page() {
               </div>
             </div>
           </div>
-          <div className="ux-house-pic">
-            <img src="/images/timp/home-sbs-house.jpg" alt="Cutaway view of a home showing its major systems" />
+          <div className="ux-house-pic labelled">
+            <div className="frame">
+              <img src="/images/timp/home-sbs-house.jpg" alt="Cutaway view of a home showing its major systems" />
+            </div>
+            <svg className="ux-leaders" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+              <line x1="18" y1="36" x2="42.32" y2="39" />
+              <line x1="18" y1="64" x2="27.6" y2="74" />
+              <line x1="18" y1="88" x2="47.44" y2="76" />
+              <line x1="82" y1="12" x2="57.68" y2="15" />
+              <line x1="82" y1="48" x2="74.96" y2="57" />
+              <line x1="82" y1="74" x2="64.08" y2="66" />
+            </svg>
+            <span className="ux-tgt" style={{ left: "42.32%", top: "39%" }}></span>
+            <span className="ux-tgt" style={{ left: "27.6%", top: "74%" }}></span>
+            <span className="ux-tgt" style={{ left: "47.44%", top: "76%" }}></span>
+            <span className="ux-tgt" style={{ left: "57.68%", top: "15%" }}></span>
+            <span className="ux-tgt" style={{ left: "74.96%", top: "57%" }}></span>
+            <span className="ux-tgt" style={{ left: "64.08%", top: "66%" }}></span>
+            <button className="ux-pin L" data-sys="electrical" style={{ "--ly": "36%", "--px": "38%", "--py": "39%" } as React.CSSProperties}>
+              <i></i>Electrical</button>
+            <button className="ux-pin L" data-sys="water" style={{ "--ly": "64%", "--px": "15%", "--py": "74%" } as React.CSSProperties}>
+              <i></i>Water heater</button>
+            <button className="ux-pin L" data-sys="plumbing" style={{ "--ly": "88%", "--px": "46%", "--py": "76%" } as React.CSSProperties}>
+              <i></i>Plumbing</button>
+            <button className="ux-pin R is-on" data-sys="roof" style={{ "--ly": "12%", "--px": "62%", "--py": "15%" } as React.CSSProperties}>
+              <i></i>Roof</button>
+            <button className="ux-pin R" data-sys="hvac" style={{ "--ly": "48%", "--px": "89%", "--py": "57%" } as React.CSSProperties}>
+              <i></i>HVAC</button>
+            <button className="ux-pin R" data-sys="appliances" style={{ "--ly": "74%", "--px": "72%", "--py": "66%" } as React.CSSProperties}>
+              <i></i>Appliances</button>
           </div>
         </div>
       </section>

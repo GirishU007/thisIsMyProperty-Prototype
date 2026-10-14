@@ -22,7 +22,10 @@ export async function PublicNav({ active }: { active: string }) {
   const homeownerPage = active === "home" || active === "how" || active === "pricing";
   const startHref = agentPage ? "/signup/agent" : homeownerPage ? "/signup" : "/start";
   const signInHref = agentPage ? "/agent" : "/app";
-  const dashHref = role === "agent" ? "/agent" : "/app";
+  // Signed in: the dashboard follows the page's audience, so the homeowner pages always open
+  // the homeowner dashboard and the agent pages the agent dashboard.
+  const who = role ? (agentPage ? "agent" : "ho") : null;
+  const dashHref = who === "agent" ? "/agent" : "/app";
 
   return (
     <header className="ux-nav">
@@ -37,18 +40,18 @@ export async function PublicNav({ active }: { active: string }) {
             </Link>
           ))}
         </nav>
-        {role ? (
+        {who ? (
           <div className="ux-nav-cta">
             <Link className="ux-btn pri sm" href={dashHref}>
               My dashboard
             </Link>
             <button className="ux-userbtn" data-act="usermenu" aria-label="Account menu">
-              {role === "agent" ? (
+              {who === "agent" ? (
                 <span className="avatar ux-av-sarah"></span>
               ) : (
                 <span className="avatar">JS</span>
               )}
-              <span className="nm">{role === "agent" ? "Sarah" : "Jane"}</span>
+              <span className="nm">{who === "agent" ? "Sarah" : "Jane"}</span>
               <Icon n="chevd" s={13} />
             </button>
             <div className="ux-menu" id="usermenu" hidden>

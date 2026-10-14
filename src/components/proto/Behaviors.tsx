@@ -474,7 +474,8 @@ export function Behaviors() {
       if ((el = t.closest<HTMLElement>("[data-sys]"))) {
         const v = SYS[el.getAttribute("data-sys") || ""];
         if (!v) return;
-        pick("[data-sys]", el);
+        const sys = el.getAttribute("data-sys");
+        all("[data-sys]").forEach((p) => p.classList.toggle("is-on", p.getAttribute("data-sys") === sys));
         setText($("hs-n"), v[0]);
         setText($("hs-g"), v[1]);
         const g = $("hs-g");
